@@ -57,3 +57,8 @@ npx expo start
 
 - scan the QR code using **Expo GO**,
 - or press w to run on the web
+
+## APK Download
+
+[Download APK]
+https://drive.google.com/file/d/1d4oqwkQskXspS2pyd4rqKMKMk6QMknlV/view?usp=sharing
