@@ -32,6 +32,10 @@ export default function Index() {
     );
   };
 
+  const deleteTask = (id) => {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+  };
+
   return (
     <View
       style={{
@@ -88,7 +92,7 @@ export default function Index() {
         data={tasks.reverse()}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <ListItem task={item} onToggle={toggleTask} />
+          <ListItem task={item} onToggle={toggleTask} deleteTask={deleteTask} />
         )}
       />
     </View>

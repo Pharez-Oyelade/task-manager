@@ -1,6 +1,6 @@
 import { View, Text, Pressable } from "react-native";
 
-export default function ListItem({ onToggle, task }) {
+export default function ListItem({ onToggle, task, deleteTask }) {
   return (
     <View
       style={{
@@ -23,6 +23,10 @@ export default function ListItem({ onToggle, task }) {
         >
           {task.task}
         </Text>
+      </Pressable>
+
+      <Pressable onPress={() => deleteTask(task.id)}>
+        <Text style={{ color: "red", fontSize: 18, marginLeft: 10 }}>X</Text>
       </Pressable>
     </View>
   );
