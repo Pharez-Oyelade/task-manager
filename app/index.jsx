@@ -85,7 +85,7 @@ export default function Index() {
       </View>
 
       <FlatList
-        data={tasks}
+        data={tasks.reverse()}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <ListItem task={item} onToggle={toggleTask} />
