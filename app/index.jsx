@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Pressable,
 } from "react-native";
+import ListItem from "./components/ListItem";
 
 export default function Index() {
   const [task, setTask] = useState("");
@@ -24,6 +25,13 @@ export default function Index() {
 
     setTask("");
   };
+
+  const toggleTask = (id) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+    );
+  };
+
   return (
     <View
       style={{
@@ -52,7 +60,7 @@ export default function Index() {
       >
         <TextInput
           style={{
-            width: 500,
+            flex: 1,
             borderWidth: 1,
             borderColor: "#ccc",
             padding: 10,
@@ -79,7 +87,9 @@ export default function Index() {
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Text>{item.task}</Text>}
+        renderItem={({ item }) => (
+          <ListItem task={item} onToggle={toggleTask} />
+        )}
       />
     </View>
   );
